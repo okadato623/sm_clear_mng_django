@@ -6,6 +6,8 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     ports:
       - "3306:3306"
+    volumes:
+     - "./mysql/data:/var/lib/mysql"
     networks:
       app_net:
         ipv4_address: 172.20.0.3
