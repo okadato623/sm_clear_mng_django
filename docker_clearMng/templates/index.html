@@ -1,21 +1,46 @@
+{% load static %}
+{% block extrahead %}
+<link href="{% static 'misc.css' %}" rel="stylesheet">
+{% endblock %}
 {% block body %}
-<a href="/mngApp/new/">登録</a>
+<a href="/mngApp/upload/">登録</a>
+<a href="/mngApp/deleteAll/">一括削除</a>
   <form method="post" action="">
-    <table border="1">
+    {{ f }}
+    <table border="1" id="main">
       <thead>
         <tr>
-          <th>message</th>
-          <th>created_at</th>
-          <th>updated_at</th>
+            <th>#</th>
+            <th>曲名</th>
+            <th>習</th>
+            <th>result</th>
+            <th>楽</th>
+            <th>result</th>
+            <th>踊</th>
+            <th>result</th>
+            <th>激</th>
+            <th>result</th>
+            <th>鬼</th>
+            <th>result</th>
         </tr>
       </thead>
       <tbody>
-        {% for message in messages %}
+        {% for song in songs %}
           <tr>
-            <td>{{ message.message }}</td>
-            <td>{{ message.created_at }}</td>
-            <td>{{ message.updated_at }}</td>
-            <td><a href="{% url 'delete' id=message.id %}" class="btn btn-primary btn-sm" id="btn_del">削除</a></td>
+            <td align="center">{{ song.no }}</td>
+            <td align="left">{{ song.name }}</td>
+
+            <td align="center">{{ song.bLv }}</td>
+            <td align="center">{{ song.bRes }}</td>
+            <td align="center">{{ song.eLv }}</td>
+            <td align="center">{{ song.eRes }}</td>
+            <td align="center">{{ song.mLv }}</td>
+            <td align="center">{{ song.mRes }}</td>
+            <td align="center">{{ song.hLv }}</td>
+            <td align="center">{{ song.hRes }}</td>
+            <td align="center">{{ song.cLv }}</td>
+            <td align="center">{{ song.cRes }}</td>
+
           </tr>
         {% endfor %}
       </tbody>
