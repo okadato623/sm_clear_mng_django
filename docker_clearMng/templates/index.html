@@ -1,4 +1,5 @@
 {% block body %}
+<a href="/mngApp/new/">登録</a>
   <form method="post" action="">
     <table border="1">
       <thead>
@@ -14,6 +15,7 @@
             <td>{{ message.message }}</td>
             <td>{{ message.created_at }}</td>
             <td>{{ message.updated_at }}</td>
+            <td><a href="{% url 'delete' id=message.id %}" class="btn btn-primary btn-sm" id="btn_del">削除</a></td>
           </tr>
         {% endfor %}
       </tbody>

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.forms import ModelForm
 
 class Message(models.Model):
     message = models.CharField(max_length=255)
@@ -8,3 +8,8 @@ class Message(models.Model):
 
     def __str__(self):
         return '{}'.format(self.message)
+
+class MessageModelForm(ModelForm):
+    class Meta:
+        model = Message
+        fields = ['message']
