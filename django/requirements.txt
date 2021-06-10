@@ -1,4 +1,4 @@
-django==2.1.6
+django==2.2.24
 PyMySQL==0.9.3
 Pillow
 mysqlclient
